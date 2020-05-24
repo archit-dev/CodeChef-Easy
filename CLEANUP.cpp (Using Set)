@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+        set <int> s;
+        for(int i=0;i<n;i++){
+            s.insert(i+1);
+        }
+        for(int i=0;i<m;i++){
+            int x;
+            cin>>x;
+            s.erase(x);
+        }
+        auto it=s.begin();
+        for(int i=0;i<s.size();i+=2){
+            cout<<*it<<" ";
+            it++;
+            it++;
+        }
+        cout<<endl;
+        if(s.size()<2){
+            cout<<endl;
+            continue;
+        }
+        else{
+            auto it=s.begin();
+            it++;
+            for(int i=1;i<s.size();i+=2){
+                cout<<*it<<" ";
+                it++;
+                it++;
+            }
+            cout<<endl;
+        }
+    }
+    return 0;
+}
